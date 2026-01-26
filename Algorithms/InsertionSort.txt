@@ -1,0 +1,17 @@
+DECLARE i : INTEGER
+DECLARE j : INTEGER
+DECLARE Key : INTEGER
+DECLARE arrLen : INTEGER
+DECLARE myArr : ARRAY[0 : 9] OF INTEGER 
+
+arrLen <-- LENGTH(myArr)
+FOR i <-- 1 TO arrLen
+    j <-- i - 1
+    Key <-- myArr[i]
+    WHILE myArr[j] > Key AND j >= 0 
+        myArr[j + 1] <-- myArr[j]
+        j <-- j - 1
+    ENDWHILE
+    myArr[j + 1] <-- Key
+NEXT i
+    

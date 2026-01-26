@@ -1,0 +1,25 @@
+DECLARE myStack : ARRAY[0 : 9] OF INTEGER
+DECLARE top, base : INTEGER
+top = -1 
+base = 0 
+
+FUNCTION Push(num : INTEGER) RETURNS BOOLEAN
+    IF top <> LENGTH(myStack) - 1 THEN
+        top <-- top + 1
+        myStack[top] <-- num
+        RETURN TRUE
+    ELSE
+        RETURN FALSE
+    ENDIF
+ENDFUNCTION
+
+FUNCTION Pop() RETURN BOOLEAN
+    IF top <> -1 THEN
+        myStack[top] <-- 0
+        top = top - 1
+        RETURN TRUE
+
+    ELSE
+        RETURN FALSE
+    ENDIF
+ENDFUNCTION

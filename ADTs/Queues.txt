@@ -1,0 +1,32 @@
+DECLARE myQueue : ARRAY[0 : 9] OF INTEGER
+DECLARE front, rear : INTEGER
+
+FUNCTION Enqueue(num : INTEGER) RETURNS BOOLEAN
+    IF LENGTH(myQueue) <> 10 THEN
+        IF rear <> 9 THEN
+            rear <-- rear + 1
+            myQueue[rear] <-- num
+        ELSE
+            rear <-- 0
+            myQueue[rear] <-- num
+        ENDIF
+        RETURN TRUE
+    ELSE
+        RETURN FALSE
+    ENDIF
+ENDFUNCTION
+
+FUNCTION Dequeue() RETURNS BOOLEAN
+    IF LENGTH(myQueue) <> 0 THEN
+        IF front <> 9 THEN
+            myQueue[front] <-- 0
+            front = front + 1
+        ELSE
+            myQueue[front] <-- 0
+            front <-- 0
+        ENDIF
+        RETURN TRUE
+    ELSE
+        RETURN FALSE
+    ENDIF
+ENDFUNCTION

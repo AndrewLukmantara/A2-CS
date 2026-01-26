@@ -1,0 +1,38 @@
+// WHILE Loop
+
+DECLARE Found : BOOLEAN
+DECLARE i, SearchElement : INTEGE
+DECLARE myArr : ARRAY[0:9] OF INTEGER
+
+OUTPUT "Please enter a search element"
+INPUT SearchElement
+Found <-- FALSE
+i = 0
+WHILE Found = FALSE
+
+        IF myArr[i] = SearchElement THEN
+            OUTPUT "Found"
+            Found <-- TRUE
+        ENDIF
+        i = i + 1
+
+ENDWHILE
+IF Found = FALSE THEN   
+    OUTPUT "Not found!"
+ENDIF
+
+
+// FOR Loop
+
+OUTPUT "Please enter a search element"
+INPUT SearchElement
+Found <-- FALSE
+FOR i <-- 0 TO LENGTH(myArr) - 1  
+    IF myArr[i] = SearchElement THEN
+            OUTPUT "Found"
+            Found <-- TRUE
+    ENDIF
+ENDIF
+IF Found = FALSE THEN   
+    OUTPUT "Not found!"
+ENDIF

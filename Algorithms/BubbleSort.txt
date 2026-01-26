@@ -1,0 +1,18 @@
+DECLARE Swap : BOOLEAN
+DECLARE Upper, Lower, Index, Temp : INTEGER
+DECLARE myArr : ARRAY[0:9] OF INTEGER
+
+Upper <-- 9
+Lower <-- 0
+REPEAT
+    Swap <-- FALSE
+    FOR Index <-- Lower TO Upper - 1
+        IF myArr[Index] < myArr[Index + 1] THEN
+            Temp <-- myArr[Index + 1]
+            myArr[Index + 1] <-- myArr[Index]
+            myArr[Index] <-- Temp
+            Swap <-- TRUE
+        ENDIF
+    NEXT Index
+    Upper <-- Upper - 1
+UNTIL NOT(Swap) OR Upper = 0

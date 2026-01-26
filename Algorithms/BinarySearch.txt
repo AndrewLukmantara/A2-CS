@@ -1,0 +1,25 @@
+// Binary search can only work if the array has been initially sorted
+// Binary search is the most efficient algorithm for searching if array has been intially sorted
+
+DECLARE myArr : ARRAY[0 : 9] OF INTEGER
+DECLARE SearchElement : INTEGER
+
+INPUT SearchElement
+FUNCTION BinarySearch(SearchElement : INTEGER) RETURNS BOOLEAN
+    DECLARE Mid, High, Low : INTEGER
+    High <-- LENGTH(myArr) - 1
+    Low <-- 0 
+    WHILE Low <= High 
+        Mid <-- (High + Low) DIV 2
+        IF myArr[Mid] = SearchElement THEN
+            OUTPUT "Found!"
+            RETURN TRUE
+        ELSEIF myArr[Mid] > SearchElement
+            High <-- Mid - 1
+        ELSEIF myArr[Mid] < SearchElement
+            Low <-- Mid + 1
+        ENDIF
+    ENDWHILE
+    OUTPUT "Not Found!"
+    RETURN FALSE
+ENDFUNCTION

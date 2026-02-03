@@ -27,13 +27,13 @@ List[6][1] = 5
 print(List)
 print(f"Heap Pointer Value : {HeapPointer}\nStart Pointer Value : {StartPointer}")
 
-def addNode_End(data) -> bool:
+def addNode_End(data):
 
     global StartPointer, HeapPointer, List
 
     if HeapPointer == -1:
         print("List is full")
-        return False
+        return -1
 
     # creating node
 
@@ -50,7 +50,7 @@ def addNode_End(data) -> bool:
         tempPointer = List[tempPointer][1]
     List[tempPointer][1] = newNode
 
-    return True
+    return 0
 
 
 # def deleteNode(position : int) -> bool:
@@ -73,7 +73,7 @@ def addNode_End(data) -> bool:
 #     return True
     
 
-def Search(data) -> bool:
+def Search(data):
 
     global StartPointer, HeapPointer, List
 
@@ -91,16 +91,38 @@ def Search(data) -> bool:
         print("Found!")
         print(f"Position : {Position}")
         print(f"Previous : {TempPointer}")
-        return True
+        return Position, TempPointer
     else:
         print("Not Found!")
-        return False
+        return -1
+
+def Delete(data):
+    
+    global StartPointer, HeapPointer, List
+
+    if StartPointer == -1:
+        print("Can't delete from an empty list!")
+    else:
+        if Search(data) == -1:
+            print("Not found!")
+        else:
+            temp = Search(data)
+            Position = temp[0]
+            Previous = temp[1]
+            if List[Position][1] == -1:
+                List[Position][1] = 0
+                List[Position][0] = 0
+                StartPointer = -1
+                HeapPointer = Position
+            else:
+                List[Previous][1] = List[Position][1]
+                List[Position][0] = 0 
+                List[Position][1] = 0
+                HeapPointer = Position
 
 
-
-
-
-print(f"\n \nHeap Pointer Value : {HeapPointer}\nStart Pointer Value : {StartPointer}")
+print(f"\nHeap Pointer Value : {HeapPointer}\nStart Pointer Value : {StartPointer}")
+print(f"{List}\n")
+Delete(4)
 print(List)
-
-Search(4)
+print(f"Heap Pointer Value : {HeapPointer}\nStart Pointer Value : {StartPointer}")

@@ -1,18 +1,33 @@
 # Linked List in Python
 
-List = [[0 for _ in range(2)] for _ in range(10)] # ARRAY[0:9, 0:1] OF STRING
-HeapPointer = 0 # INTEGER
-StartPointer = -1 # INTEGER
+List = [[0 for _ in range(2)] for _ in range(7)] # ARRAY[0:9, 0:1] OF INTEGER
+HeapPointer = -1 # INTEGER
+StartPointer = 3 # INTEGER
 
-for i in range(10): # i : INTEGER
-    List[i][1] = i + 1
+# for i in range(10): # i : INTEGER
+#     List[i][1] = i + 1
 
-List[9][1] = -1
+List[0][0] = 3
+List[0][1] = -1
+List[1][0] = 6
+List[1][1] = 0
+List[2][0] = 4
+List[2][1] = 6
+List[3][0] = 9
+List[3][1] = 4
+List[4][0] = 2
+List[4][1] = 2
+List[5][0] = 1
+List[5][1] = 1
+List[6][0] = 8
+List[6][1] = 5
+
+
 
 print(List)
 print(f"Heap Pointer Value : {HeapPointer}\nStart Pointer Value : {StartPointer}")
 
-def addNode_End(data : str) -> bool:
+def addNode_End(data) -> bool:
 
     global StartPointer, HeapPointer, List
 
@@ -28,7 +43,7 @@ def addNode_End(data : str) -> bool:
     HeapPointer = List[HeapPointer][1]
     List[newNode][0] = data
     List[newNode][1] = -1 
-
+    
     # adding node
 
     while List[tempPointer][1] != -1:
@@ -38,36 +53,54 @@ def addNode_End(data : str) -> bool:
     return True
 
 
-def deleteNode(position : int) -> bool:
+# def deleteNode(position : int) -> bool:
     
+#     global StartPointer, HeapPointer, List
+
+#     if StartPointer == -1:
+#         print("List is empty!")
+#         return False
+    
+#     before = 0
+#     while List[before][1] != position:
+#         before = before + 1
+
+#     after = List[position][1]
+#     List[position][1] = 0
+#     List[position][0] = 0
+#     List[before][1] = after
+
+#     return True
+    
+
+def Search(data) -> bool:
+
     global StartPointer, HeapPointer, List
 
-    if StartPointer == -1:
-        print("List is empty!")
+    Found = False
+    ItemPointer = StartPointer
+    while not Found and List[ItemPointer][0] != 0:
+        if List[ItemPointer][0] == data:
+            Found = True
+        else:
+            TempPointer = ItemPointer
+            ItemPointer = List[ItemPointer][1]
+            Position = ItemPointer
+
+    if Found:
+        print("Found!")
+        print(f"Position : {Position}")
+        print(f"Previous : {TempPointer}")
+        return True
+    else:
+        print("Not Found!")
         return False
-    
-    before = 0
-    while List[before][1] != position:
-        before = before + 1
-
-    after = List[position][1]
-    List[position][1] = 0
-    List[position][0] = 0
-    List[before][1] = after
-
-    return True
-    
 
 
-addNode_End("Cookie")
-addNode_End("Orange")
-addNode_End("Muffin")
-addNode_End("watermelon")
+
+
 
 print(f"\n \nHeap Pointer Value : {HeapPointer}\nStart Pointer Value : {StartPointer}")
 print(List)
 
-deleteNode(2)
-
-print(f"\n \nHeap Pointer Value : {HeapPointer}\nStart Pointer Value : {StartPointer}")
-print(List)
+Search(4)

@@ -28,24 +28,15 @@ def addNode_End(data):
 
     if HeapPointer == -1:
         print("List is full")
-        return -1
 
     # creating node
 
-    tempPointer = List[StartPointer][1]
-    newNode = HeapPointer # newNode : INTEGER
+    tempPointer = StartPointer
     StartPointer = HeapPointer
     HeapPointer = List[HeapPointer][1]
-    List[newNode][0] = data
-    List[newNode][1] = -1 
-    
-    # adding node
+    List[StartPointer][0] = data
+    List[StartPointer][1] = tempPointer
 
-    while List[tempPointer][1] != -1:
-        tempPointer = List[tempPointer][1]
-    List[tempPointer][1] = newNode
-
-    return 0
 
     
 def Search(SE):

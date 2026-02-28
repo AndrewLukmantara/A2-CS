@@ -1,0 +1,31 @@
+Trees
+- a tree is a connected graph (all nodes are connected)
+- graph can be a directed / undirected graph
+- a tree is always undirected
+- a tree is acyclic
+
+Graph Calculation
+n = 2
+E = n - 1
+  = 2 - 1 = 1
+
+Binary Trees
+- Every node has at most 2 nodes
+- Has parent & child nodes
+- An example of a binary tree is the file directory structure
+
+- Binary tree where every node has exactly 2 children is called a complete binary tree
+- Binary tree where every level has 2 nodes is called a full binary tree
+- Every full tree is a complete tree
+
+- Starting node is the [root node]
+- There is no parent to the root node
+- Any node that does not have any children are called the leaf nodes
+- A tree has left branch and right branch where each branch is a subtree
+
+Binary Search Tree (BST)
+- Binary Tree in which the value of the left node is smaller than the value of its parent node and right node is larger than the value of the parent node
+
+
+Note
+- You need to know how to add and search for a node in a binary tree

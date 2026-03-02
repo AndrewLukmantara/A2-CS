@@ -24,13 +24,14 @@ def Search(data):
     i = RootNode
     Found = False
     End = False
-    while not Found and not End:
+    while not End:
         
         if BinaryTree[i].left == -1 and BinaryTree[i].right == -1:
             End = True
 
         if BinaryTree[i].data == data:
             Found = True
+            break
         elif data < BinaryTree[i].data:
             i = BinaryTree[i].left
         elif data > BinaryTree[i].data:
@@ -81,3 +82,5 @@ Add(1)
 
 for i in BinaryTree:
     print(i.left, i.data, i.right)
+
+print(f"Heap : {Heap}")

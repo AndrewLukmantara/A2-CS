@@ -59,26 +59,30 @@ def Add(data):
         RootNode = 0
 
     i = RootNode
-    End = False
-    while not End:
+    Placed = False
+    while not Placed:
         
-        if BinaryTree[i].left == -1 and BinaryTree[i].right == -1:
-            End = True
+        if data > BinaryTree[i].data:
 
-        if data < BinaryTree[i].data:
-            i = BinaryTree[i].left
-        elif data > BinaryTree[i].data:
-            i = BinaryTree[i].right
+            if BinaryTree[i].right == -1:
+                BinaryTree[i].right = Heap
+                Placed = True
+            else:
+                i = BinaryTree[i].right
+            
+        else:
+            
+            if BinaryTree[i].left == -1:
+                BinaryTree[i].left = Heap
+                Placed = True
+            else:
+                i = BinaryTree[i].left
 
-    if data > BinaryTree[i].data:
-        BinaryTree[i].right = Heap
-        BinaryTree[Heap] = node(-1, data, -1)
-    elif data > BinaryTree[i].data:
-        BinaryTree[i].left = Heap
-        BinaryTree[Heap] = node(-1, data, -1)
-        Heap = BinaryTree[Heap].left
+    BinaryTree[Heap].data = data
+    Heap += 1
 
-Add(1)
+
+Add(5)
 
 for i in BinaryTree:
     print(i.left, i.data, i.right)

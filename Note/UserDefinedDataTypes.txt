@@ -1,0 +1,106 @@
+Enumerated Data Types
+
+    - Items are stored in an order
+    - Non-composite
+
+    TYPE Month = (January, February, March, April, ...)
+    DECLARE curentMonth : Month
+
+    currentMonth = January
+
+
+
+Pointer Data Types
+
+    - Non-composite
+    - Stores the address / locations of data
+
+    TYPE IntegerPointer = ^INTEGER
+    DECLARE myPointer : IntegerPointer
+
+    current = 101
+    
+    myPointer = @current // Store address of current
+
+    myPointer^ = 102 // Stores 102 in myPointer
+
+
+
+Record Data Types
+
+    - Composite
+    - References other primitive / non-primitive data types
+
+    TYPE Student
+
+        DECLARE ID : STRING
+        DECLARE Name : STRING
+        DECLARE Class : CHAR
+        DECLARE Score : INTEGER
+
+    ENDTYPE
+
+
+
+Set Data Types
+
+    - Non-composite
+    
+    TYPE Hex = SET OF CHAR
+    DEFINE Hexadecimal ('0', '1', '2', '3', ..., 'A', ...) : Hex
+
+
+Class Data Types
+
+    - Composite
+    - Uses encapsulation where properties and methods are stored within a class
+    - Can store primitive / non-primitive data types
+    - Inheritance <-- Creating a derived class which contains all the methods and attributes of its parent class
+    - Polymorphism <-- The same method is redefined for other derived classes
+    - Instance <-- An occurence of an object
+
+    CLASS Person 
+
+        PRIVATE Name : STRING
+        
+        PUBLIC PROCEDFURE SetName(NewName : STRING) 
+
+            Name <-- NewName
+
+        ENDPROCEDURE
+
+    ENDCLASS
+
+
+    CLASS Student INHERITS Person
+
+        PRIVATE ID : STRING
+        PRIVATE Class : STRING
+        PRIVATE Grade : INTEGER
+
+        PUBLIC NEW (NewName : STRING, NewID : STRING, NewClass : STRING)
+
+            SUPER.SetName(NewName)
+            ID <-- NewID
+            Class <-- NewClass
+
+        ENDPROCEDURE 
+        
+        PUBLIC FUNCTION GetID() RETURNS STRING
+
+            RETURN ID
+
+        ENDPROCEDURE
+
+        PUBLIC PROCEDURE SetGrade(NewGrade : INTEGER)
+
+            Grade <-- NewGrade
+
+        ENPROCEDURE
+
+    ENDCLASS
+
+
+
+Student1 <-- NEW Student("Drew", "101D", "JC2Hope", 100)
+OUTPUT Student1.GetID()

@@ -1,6 +1,4 @@
 
-# SOME ERRORS HERE (DO NOT USE FOR REFERENCE YET)
-
 BeverageQueue = ["None" for _ in range(10)] # array[0 : 9] of string
 BeverageFrontPointer = 0 # integer
 BeverageRearPointer = 0 # integer
@@ -19,7 +17,7 @@ def TakeOrder(selection):
     Items = selection.split(",") # ARRAY OF STRING
 
     Beveragefile = open("C:/Users/62818/OneDrive/A Level CS/AndrewCL_CheckpointAssessment/BeverageData.txt", "r")
-    OrderFile = open("C:/Users/62818/OneDrive/A Level CS/AndrewCL_CheckpointAssessment/Order.txt", "w")
+    OrderFile = open("C:/Users/62818/OneDrive/A Level CS/AndrewCL_CheckpointAssessment/Order.txt", "a")
 
     line = Beveragefile.readline().strip()
 
@@ -29,7 +27,7 @@ def TakeOrder(selection):
 
             if line == Items[i]:
                 print(f"{Items[i]} found!")
-                OrderFile.write(f"{Items[i]}")
+                OrderFile.write(f"{Items[i]}\n")
 
         line = Beveragefile.readline().strip()
 
@@ -37,8 +35,6 @@ def TakeOrder(selection):
     OrderFile.close()
 
 
-
-    
 
 def EnqueueBeverage(DataToEnqueue):
 
@@ -72,14 +68,20 @@ def DequeueBeverage():
 
 def ServeItem():
 
-    return_result = DequeueBeverage()
-    if return_result == "":
-        print("No more orders to serve")
-    else:
-        print(f"You ordered {return_result}.")
+    for i in range(len(BeverageQueue)):
+        return_result = DequeueBeverage()
+        if return_result == "":
+            break
+        else:
+            print(f"You ordered {return_result}")
 
-
+print("Menu : ")
 DisplayMenu()
+
+print("\n")
+
 TakeOrder("Tea,Coffee,Apple Juice,Cold Tea,Smoothie")
+
+
 ReadOrderData()
 ServeItem()

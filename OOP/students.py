@@ -40,7 +40,7 @@ class Student():
         self.__name = newName
     
     # def __str__(self):
-        # return (f"Name : {self.name}\nAge : {self.age}\nGender {self.gender}\n")
+    #     return (f"Name : {self.name}\nAge : {self.age}\nGender {self.gender}\n")
 
     
 

@@ -1,0 +1,8 @@
+Student,Andrew,Lukmantara,PIK,001,1
+Student,Louis,Yu,Tamansari,002,1
+Student,William,Lau,Manyar,003,2
+Worker,John,Doe,Golf,005,50000
+Worker,Smooth,Smith,Diamond,006,60000
+Worker,Mary,Jane,Oak,007,55000
+
+

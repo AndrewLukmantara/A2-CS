@@ -1,6 +1,4 @@
 
-# SOME ERRORS HERE (DO NOT USE FOR REFERENCE YET)
-
 BeverageQueue = ["None" for _ in range(10)] # array[0 : 9] of string
 BeverageFrontPointer = 0 # integer
 BeverageRearPointer = 0 # integer

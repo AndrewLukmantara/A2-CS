@@ -1,60 +1,60 @@
 class Device():
     def __init__(self, device_name : str, brand : str, battery_life : int, price : float): 
-        self.__device_name = device_name
-        self.__brand = brand
-        self.__battery_life = battery_life
-        self.__price = price
+        self._device_name = device_name
+        self._brand = brand
+        self._battery_life = battery_life
+        self._price = price
     
     def get_device_name(self):
-        return self.__device_name
+        return self._device_name
 
     def get_brand(self):
-        return self.__brand
+        return self._brand
 
     def get_battery_life(self):
-        return self.__battery_life
+        return self._battery_life
     
     def get_price(self):
-        return self.__price
+        return self._price
     
     def print_details(self):
-        print(f"Device name : {self.__device_name}")
-        print(f"Brand : {self.__brand}")
-        print(f"Battery Life : {self.__battery_life}")
-        print(f"Price : {self.__price}")
+        print(f"Device name : {self._device_name}")
+        print(f"Brand : {self._brand}")
+        print(f"Battery Life : {self._battery_life}")
+        print(f"Price : {self._price}")
 
 class Phone(Device):
     
     def __init__(self, device_name : str, brand : str, battery_life : int, price : float, storage : float):
         super().__init__(device_name, brand, battery_life, price)
-        self.__storage = storage
-    
+        self._storage = storage
+
     def get_storage(self):
-        return self.__storage
+        return self._storage
     
     def print_details(self):
-        print(f"Device name :{Device.get_device_name(self)}")
-        print(f"Brand : {Device.get_brand(self)}")
-        print(f"Battery Life : {Device.get_battery_life(self)}")
-        print(f"Price : {Device.get_price(self)}")
-        print(f"Storage : {self.__storage}")
+        print(f"Device name :{self._device_name}")
+        print(f"Brand : {self._brand}")
+        print(f"Battery Life : {self._battery_life}")
+        print(f"Price : {self._price}")
+        print(f"Storage : {self._storage}")
 
 
 class Laptop(Device):
     
     def __init__(self, device_name : str, brand : str, battery_life : int, price : float, ram : int):
         super().__init__(device_name, brand, battery_life, price)
-        self.__ram = ram
+        self._ram = ram
     
     def get_storage(self):
-        return self.__ram
+        return self._ram
     
     def print_details(self):
-        print(f"Device name :{Device.get_device_name(self)}")
-        print(f"Brand : {Device.get_brand(self)}")
-        print(f"Battery Life : {Device.get_battery_life(self)}")
-        print(f"Price : {Device.get_price(self)}")
-        print(f"RAM : {self.__ram}")
+        print(f"Device name :{self._device_name}")
+        print(f"Brand : {self._brand}")
+        print(f"Battery Life : {self._battery_life}")
+        print(f"Price : {self._battery_life}")
+        print(f"RAM : {self._ram}")
 
 
 
@@ -62,17 +62,17 @@ class Tablet(Device):
     
     def __init__(self, device_name, brand, battery_life, price, screen_size):
         super().__init__(device_name, brand, battery_life, price)
-        self.__screen_size = screen_size
+        self._screen_size = screen_size
     
     def get_storage(self):
-        return self.__screen_size
+        return self._screen_size
     
     def print_details(self):
-        print(f"Device name :{Device.get_device_name(self)}")
-        print(f"Brand : {Device.get_brand(self)}")
-        print(f"Battery Life : {Device.get_battery_life(self)}")
-        print(f"Price : {Device.get_price(self)}")
-        print(f"Screen Size : {self.__screen_size}")
+        print(f"Device name :{self._device_name}")
+        print(f"Brand : {self._brand}")
+        print(f"Battery Life : {self._battery_life}")
+        print(f"Price : {self._battery_life}")
+        print(f"Screen Size : {self._screen_size}")
 
 
 def ReadDeviceData():
